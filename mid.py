@@ -91,15 +91,13 @@ def ValueToNote(note_num):
 	return str(mod) + str(octi)
 
 i = 0
-prev = ""
 pt = ""
 while i < len(read_data):
-	prev = pt
 	pt = read_data[i]
 
 	if pt == 128:
-		print('Note ', ValueToNote(read_data[i+1]),' off, velocity ', read_data[i+2], ', ', prev, ' ticks from last event')
+		print('Note ', ValueToNote(read_data[i+1]),' off, velocity ', read_data[i+2], ', ', read_data[i-1], ' ticks from last event')
 	if pt == 144:
-		print('Note ', ValueToNote(read_data[i+1]),' on, velocity ', read_data[i+2], ', ', prev, ' ticks from last event')
+		print('Note ', ValueToNote(read_data[i+1]),' on, velocity ', read_data[i+2], ', ', read_data[i-1], ' ticks from last event')
 
 	i += 1
