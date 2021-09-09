@@ -1,4 +1,4 @@
-import struct, pickle
+import struct
 
 
 class midiObj:
